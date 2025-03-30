@@ -1,0 +1,10 @@
+INSERT INTO semestre (id_programa, numero_semestre, fecha_inicio, fecha_fin, activo) VALUES (1, 1, '01-01-2025', '01-12-2025', true);
+INSERT INTO semestre (id_programa, numero_semestre, fecha_inicio, fecha_fin, activo) VALUES (2, 2, '01-01-2025', '01-12-2025', true);
+INSERT INTO semestre (id_programa, numero_semestre, fecha_inicio, fecha_fin, activo) VALUES (3, 3, '01-01-2025', '01-12-2025', true);
+INSERT INTO semestre (id_programa, numero_semestre, fecha_inicio, fecha_fin, activo) VALUES (4, 4, '01-01-2025', '01-12-2025', true);
+INSERT INTO semestre (id_programa, numero_semestre, fecha_inicio, fecha_fin, activo) VALUES (5, 5, '01-01-2025', '01-12-2025', true);
+INSERT INTO semestre (id_programa, numero_semestre, fecha_inicio, fecha_fin, activo) VALUES (6, 6, '01-01-2025', '01-12-2025', true);
+INSERT INTO semestre (id_programa, numero_semestre, fecha_inicio, fecha_fin, activo) VALUES (7, 7, '01-01-2025', '01-12-2025', true);
+INSERT INTO semestre (id_programa, numero_semestre, fecha_inicio, fecha_fin, activo) VALUES (8, 8, '01-01-2025', '01-12-2025', true);
+INSERT INTO semestre (id_programa, numero_semestre, fecha_inicio, fecha_fin, activo) VALUES (9, 9, '01-01-2025', '01-12-2025', true);
+INSERT INTO semestre (id_programa, numero_semestre, fecha_inicio, fecha_fin, activo) VALUES (10, 10, '01-01-2025', '01-12-2025', true);

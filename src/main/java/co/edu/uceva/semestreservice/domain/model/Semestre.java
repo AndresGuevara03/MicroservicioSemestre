@@ -18,7 +18,7 @@ public class Semestre {
     private long id;
     @NotNull(message = "El semestre debe estar asociado a un programa academico")
     @Column(nullable = false)
-    private long programaId;
+    private long idPrograma;
     @NotNull(message = "Debe ingresar cual es el semestre")
     @Size(min = 1, max = 10, message = "El semestrea debe estar en un rango del 1 al 10")
     @Column(nullable = false)
