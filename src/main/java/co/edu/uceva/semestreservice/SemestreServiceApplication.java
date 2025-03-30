@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SemestreServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SemestreServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SemestreServiceApplication.class, args);
+    }
 
 }
