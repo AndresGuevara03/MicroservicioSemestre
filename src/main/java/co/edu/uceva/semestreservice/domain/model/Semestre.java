@@ -20,7 +20,7 @@ public class Semestre {
     @Column(nullable = false)
     private long idPrograma;
     @NotNull(message = "Debe ingresar cual es el semestre")
-    @Range(min = 2, max = 10, message = "El semestrea debe estar en un rango del 1 al 10")
+    @Range(min = 1, max = 12, message = "El semestrea debe estar en un rango del 1 al 10")
     @Column(nullable = false)
     private Byte numeroSemestre;
     @NotNull(message = "Debe ingresar la fecha de inicio del semestre")
