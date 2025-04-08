@@ -1,9 +1,6 @@
 package co.edu.uceva.semestreservice.delivery.rest;
 
-import co.edu.uceva.semestreservice.domain.exception.NoHaySemestresException;
-import co.edu.uceva.semestreservice.domain.exception.PaginaSinSemestresException;
-import co.edu.uceva.semestreservice.domain.exception.SemestreNoEncontradoException;
-import co.edu.uceva.semestreservice.domain.exception.ValidationException;
+import co.edu.uceva.semestreservice.domain.exception.*;
 import co.edu.uceva.semestreservice.domain.model.Semestre;
 import co.edu.uceva.semestreservice.domain.service.ISemestreService;
 import jakarta.validation.Valid;
@@ -43,7 +40,7 @@ public class SemestreRestController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/semestres/page/{page}")
+    @GetMapping("/semestre/page/{page}")
     public ResponseEntity<Object> index(@PathVariable Integer page) {
         Pageable pageable = PageRequest.of(page, 4);
         Page<Semestre> semestres = semestreService.findAll(pageable);
@@ -59,7 +56,11 @@ public class SemestreRestController {
         if (bindingResult.hasErrors()) {
             throw new ValidationException(bindingResult);
         }
-        Semestre nuevoSemestre = semestreService.save(semestre);
+        Semestre nuevoSemestre = semestreService.findById(semestre.getId()).orElse(null);
+        if (nuevoSemestre != null) {
+            throw new SemestreExistenteException(nuevoSemestre.getId());
+        }
+        nuevoSemestre = semestreService.save(semestre);
         response.put(MENSAJE, "El semestre ha sido creado con éxito!");
         response.put(SEMESTRE, nuevoSemestre);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);

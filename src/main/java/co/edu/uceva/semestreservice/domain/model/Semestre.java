@@ -15,10 +15,10 @@ import java.time.LocalDate;
 public class Semestre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @NotNull(message = "El semestre debe estar asociado a un programa academico")
     @Column(nullable = false)
-    private long idPrograma;
+    private Long idPrograma;
     @NotNull(message = "Debe ingresar cual es el semestre")
     @Range(min = 1, max = 12, message = "El semestrea debe estar en un rango del 1 al 10")
     @Column(nullable = false)
@@ -35,5 +35,5 @@ public class Semestre {
     private LocalDate fechaFin;
     @Column(nullable = false)
     @NotNull(message = "Debe indicar si el programa se encuentra activo")
-    private boolean activo;
+    private Boolean activo;
 }
