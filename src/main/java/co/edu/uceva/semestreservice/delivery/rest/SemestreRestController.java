@@ -56,11 +56,11 @@ public class SemestreRestController {
         if (bindingResult.hasErrors()) {
             throw new ValidationException(bindingResult);
         }
-        Semestre nuevoSemestre = semestreService.findById(semestre.getId()).orElse(null);
-        if (nuevoSemestre != null) {
-            throw new SemestreExistenteException(nuevoSemestre.getId());
+        if (semestre.getId() != null &&
+                semestreService.findById(semestre.getId()).orElse(null) != null) {
+            throw new SemestreExistenteException(semestre.getId());
         }
-        nuevoSemestre = semestreService.save(semestre);
+        Semestre nuevoSemestre = semestreService.save(semestre);
         response.put(MENSAJE, "El semestre ha sido creado con éxito!");
         response.put(SEMESTRE, nuevoSemestre);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
