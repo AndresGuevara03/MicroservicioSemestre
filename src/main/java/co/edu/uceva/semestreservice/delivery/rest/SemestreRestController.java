@@ -2,8 +2,10 @@ package co.edu.uceva.semestreservice.delivery.rest;
 
 import co.edu.uceva.semestreservice.domain.exception.*;
 import co.edu.uceva.semestreservice.domain.model.Semestre;
+import co.edu.uceva.semestreservice.domain.service.IProgramaClient;
 import co.edu.uceva.semestreservice.domain.service.ISemestreService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -20,13 +22,16 @@ import java.util.Map;
 @RequestMapping("/api/v1/semestre-service")
 public class SemestreRestController {
     private final ISemestreService semestreService;
+    private final IProgramaClient programaClient;
 
     private static final String MENSAJE = "mensaje";
     private static final String SEMESTRE = "semestre";
     private static final String SEMESTRES = "semestres";
 
-    public SemestreRestController(ISemestreService semestreService) {
+    @Autowired
+    public SemestreRestController(ISemestreService semestreService, IProgramaClient programaClient) {
         this.semestreService = semestreService;
+        this.programaClient = programaClient;
     }
 
     @GetMapping("/semestres")
@@ -38,6 +43,11 @@ public class SemestreRestController {
         }
         response.put(SEMESTRES, semestres);
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/programas")
+    public ResponseEntity<Map<String, Object>> getProgramas() {
+        return programaClient.getProgramas();
     }
 
     @GetMapping("/semestre/page/{page}")
